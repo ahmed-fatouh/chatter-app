@@ -1,0 +1,50 @@
+/*
+Material Design Color Palette
+background color: #D3D3D3 (light grey)
+primary text: #000000 (black)
+primary color: #3F51B5 (indigo)
+primary color text: #FFFFFF (white)
+accent color: #FF4081 (pink)
+accent color text: #000000 (black)
+*/
+
+body{
+    background-color: lightgrey;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+/*Channels and Chat text areas*/
+.area{
+    background-color: #FFFFFF;
+    padding: 5px;
+    padding-right: 0;
+}
+
+/*App bars*/
+h1 {
+    color: #FFFFFF;
+    background-color: #3F51B5;
+}
+
+button{
+    color: black;
+    background-color: #FF4081;
+    border-color: #FF4081;
+    text-transform: uppercase;
+}
+
+/*Message Metadata*/
+.message h4{
+    font-size: medium;
+}
+
+.location {
+    text-transform: uppercase;
+}
+
+/*TimeToLive*/
+.message em{
+    font-size: larger;
+    font-style: normal;
+}
