@@ -34,6 +34,10 @@ button{
     text-transform: uppercase;
 }
 
+.message {
+    width: 80%;
+}
+
 /*Message Metadata*/
 .message h4{
     font-size: medium;
@@ -41,10 +45,21 @@ button{
 
 .location {
     text-transform: uppercase;
+    color: #000000;
 }
 
 /*TimeToLive*/
 .message em{
     font-size: larger;
     font-style: normal;
+}
+
+/*Channels List*/
+ul {
+    list-style-type: none;
+}
+
+/*Group of buttons under the channels list*/
+.tab-bar{
+    background-color: white;
 }
