@@ -7,6 +7,11 @@ primary color text: #FFFFFF (white)
 accent color: #FF4081 (pink)
 accent color text: #000000 (black)
 */
+/*=============Global=================*/
+*{
+    padding: 0;
+    margin: 0;
+}
 
 body{
     background-color: lightgrey;
@@ -21,19 +26,54 @@ body{
     padding-right: 0;
 }
 
+button{
+    color: black;
+    background-color: #FF4081;
+    border-color: #FF4081;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+/*=============App Bar================*/
 /*App bars*/
 h1 {
     color: #FFFFFF;
     background-color: #3F51B5;
 }
 
-button{
-    color: black;
-    background-color: #FF4081;
-    border-color: #FF4081;
-    text-transform: uppercase;
+/*==========Channels List=============*/
+/*Channels List*/
+ul {
+    list-style-type: none;
 }
 
+/*=============Tab Bar================*/
+/*Group of buttons under the channels list*/
+.tab-bar{
+    background-color: white;
+}
+
+.tab-bar button{
+    box-sizing: border-box;
+    width: 33.33%;
+    height: 72px;
+    padding: 16px;
+    font-size: 13px;
+    background-color: white;
+    border: 0;
+}
+
+.tab-bar button.selected{
+    border-bottom: 4px solid #3F51B5;
+}
+
+.tab-bar img {
+    margin: 0 auto 4px auto;
+    display: block;
+}
+
+/*=============Messages===============*/
 .message {
     width: 80%;
 }
@@ -52,14 +92,4 @@ button{
 .message em{
     font-size: larger;
     font-style: normal;
-}
-
-/*Channels List*/
-ul {
-    list-style-type: none;
-}
-
-/*Group of buttons under the channels list*/
-.tab-bar{
-    background-color: white;
 }
