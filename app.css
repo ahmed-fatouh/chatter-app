@@ -48,6 +48,22 @@ ul {
     list-style-type: none;
 }
 
+li{
+    padding: 16px;
+    font-size: 16px;
+    border-bottom: 1px solid #D3D3D3;
+    height: 24px;
+}
+
+li.selected {
+    border-left: 4px solid #3F51B5;
+    color: #3F51B5;
+}
+
+li img {
+    vertical-align: middle;
+}
+
 /*=============Tab Bar================*/
 /*Group of buttons under the channels list*/
 .tab-bar{
@@ -76,6 +92,15 @@ ul {
 /*=============Messages===============*/
 .message {
     width: 80%;
+    margin-bottom: 8px;
+    margin-left: 2.5%;
+    background-color: white;
+    padding: 16px;
+}
+
+/*Message from the current user*/
+.message.own{
+    margin-left: 17.5%;
 }
 
 /*Message Metadata*/
