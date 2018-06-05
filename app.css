@@ -16,7 +16,7 @@ accent color text: #000000 (black)
 body{
     background-color: lightgrey;
     padding: 10px;
-    font-family: Arial, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
 }
 
 /*Channels and Chat text areas*/
