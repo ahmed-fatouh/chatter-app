@@ -24,6 +24,7 @@ body{
     background-color: #FFFFFF;
     padding: 5px;
     padding-right: 0;
+    min-height: 100%;
 }
 
 button{
@@ -34,6 +35,17 @@ button{
     text-align: center;
 }
 
+.channels-area{
+    position: absolute;
+    left: 0;
+    width: 40%;
+}
+
+.chat-area{
+    position: absolute;
+    right: 0;
+    width: 60%;
+}
 
 /*=============App Bar================*/
 /*App bars*/
