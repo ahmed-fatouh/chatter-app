@@ -16,3 +16,7 @@ function selectTab(tabId){
     $('.tab-bar button').removeClass('selected');
     $('#' + tabId).addClass('selected')
 }
+
+function toggleEmojiBox(){
+    $('#emojis').toggle();
+}
