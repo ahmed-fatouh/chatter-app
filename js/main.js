@@ -6,6 +6,8 @@ function switchChannel(channelName){
     document.getElementById('channel-owner-location').innerHTML = 'upgrading.never.helps';
     document.getElementById('channel-owner-location').href = 'https://map.what3words.com/upgrading.never.helps';
     document.getElementById('current-channel-star').src = 'img/star-o.png';
+    $('li').removeClass('selected');
+    $('li:contains(' + channelName + ')').addClass('selected');
 }
 
 function fillStar(){
