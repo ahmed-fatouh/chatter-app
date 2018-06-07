@@ -24,9 +24,9 @@
             <li onclick="switchChannel('#PlacesToVisit');">#PlacesToVisit <img src="img/star.png" alt="favorite channel"/></li>
         </ul>
         <div class="tab-bar">
-            <button class="selected"><img src="img/lightbulb-o.png" alt="New channels" /> New</button><!--
-            --><button><img src="img/fire.png" alt="Trending channels" /> Trending</button><!--
-            --><button><img src="img/star.png" alt="Favorite channels" /> Favorites</button>
+            <button id="new-channels" onclick="selectTab('new-channels');" class="selected"><img src="img/lightbulb-o.png" alt="New channels" /> New</button><!--
+            --><button id="trending-channels" onclick="selectTab('trending-channels');"><img src="img/fire.png" alt="Trending channels" /> Trending</button><!--
+            --><button id="favorite-channels" onclick="selectTab('favorite-channels');"><img src="img/star.png" alt="Favorite channels" /> Favorites</button>
         </div>    
     </div>
 

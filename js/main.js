@@ -11,3 +11,8 @@ function switchChannel(channelName){
 function fillStar(){
     $('#current-channel-star').attr('src', 'img/star.png');
 }
+
+function selectTab(tabId){
+    $('.tab-bar button').removeClass('selected');
+    $('#' + tabId).addClass('selected')
+}
