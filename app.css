@@ -22,7 +22,7 @@ body{
 /*Channels and Chat text areas*/
 .area{
     background-color: #FFFFFF;
-    min-height: 98%;
+    height: 98vh;
 }
 
 button{
@@ -70,6 +70,8 @@ h1 {
 /*Channels List*/
 ul {
     list-style-type: none;
+    height: 75%;
+    overflow: auto;
 }
 
 li{
@@ -100,7 +102,7 @@ li img {
 .tab-bar button{
     box-sizing: border-box;
     width: 33.33%;
-    height: 72px;
+    height: 10%;
     padding: 16px;
     font-size: 13px;
     background-color: white;
@@ -119,12 +121,25 @@ li img {
 }
 
 /*=============Messages===============*/
+#message-list {
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .message {
     width: 80%;
     margin-bottom: 8px;
     margin-left: 2.5%;
     background-color: white;
     padding: 16px;
+    position: relative;
+}
+
+.message button {
+    position: absolute;
+    right: 16px;
+    bottom: 8px;
 }
 
 /*Message from the current user*/
@@ -135,6 +150,8 @@ li img {
 /*Message Metadata*/
 .message h4{
     font-size: medium;
+    display: flex;
+    justify-content: space-between;
 }
 
 .location {
