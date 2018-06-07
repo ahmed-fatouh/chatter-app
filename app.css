@@ -22,9 +22,7 @@ body{
 /*Channels and Chat text areas*/
 .area{
     background-color: #FFFFFF;
-    padding: 5px;
-    padding-right: 0;
-    min-height: 100%;
+    min-height: 98%;
 }
 
 button{
@@ -52,8 +50,22 @@ button{
 h1 {
     color: #FFFFFF;
     background-color: #3F51B5;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 5px;
 }
 
+#moocus {
+    position: relative;
+    top: 24px;
+    left: 5px;
+}
+
+#current-channel-star{
+    position: absolute;
+    right: 3px;
+    top: 28px;
+}
 /*==========Channels List=============*/
 /*Channels List*/
 ul {
@@ -78,8 +90,11 @@ li img {
 
 /*=============Tab Bar================*/
 /*Group of buttons under the channels list*/
-.tab-bar{
-    background-color: white;
+.tab-bar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 .tab-bar button{
@@ -92,8 +107,10 @@ li img {
     border: 0;
 }
 
+
 .tab-bar button.selected{
     border-bottom: 4px solid #3F51B5;
+    color: #3F51B5;
 }
 
 .tab-bar img {
