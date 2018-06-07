@@ -186,3 +186,7 @@ li img {
     border: 0;
     margin: 16px;
 }
+
+#emojis{
+    display: none;
+}
