@@ -63,7 +63,7 @@ h1 {
 
 #current-channel-star{
     position: absolute;
-    right: 3px;
+    right: 5px;
     top: 28px;
 }
 /*==========Channels List=============*/
@@ -79,6 +79,7 @@ li{
     font-size: 16px;
     border-bottom: 1px solid #D3D3D3;
     height: 24px;
+    position: relative;
 }
 
 li.selected {
@@ -88,6 +89,8 @@ li.selected {
 
 li img {
     vertical-align: middle;
+    position: absolute;
+    right: 5px;
 }
 
 /*=============Tab Bar================*/
