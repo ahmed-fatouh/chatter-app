@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="app.css" />
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -15,26 +16,11 @@
         <h1><img id="moocus" src="img/moocus.png" alt="Moocus Duck" style="height: 56px;"/>
             chatter|app</h1>
         <ul>
-            <li>#UniChannel <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#OneWorld <img src="img/star.png" alt="favorite channel"/></li>
-            <li class="selected">#WeatherChannel <img src="img/star.png" alt="favorite channel"/></li>
-            <li>#BestQuotes <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#PlacesToVisit <img src="img/star.png" alt="favorite channel"/></li>
-            <li>#UniChannel <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#OneWorld <img src="img/star.png" alt="favorite channel"/></li>
-            <li class="selected">#WeatherChannel <img src="img/star.png" alt="favorite channel"/></li>
-            <li>#BestQuotes <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#PlacesToVisit <img src="img/star.png" alt="favorite channel"/></li>
-            <li>#UniChannel <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#OneWorld <img src="img/star.png" alt="favorite channel"/></li>
-            <li class="selected">#WeatherChannel <img src="img/star.png" alt="favorite channel"/></li>
-            <li>#BestQuotes <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#PlacesToVisit <img src="img/star.png" alt="favorite channel"/></li>
-            <li>#UniChannel <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#OneWorld <img src="img/star.png" alt="favorite channel"/></li>
-            <li class="selected">#WeatherChannel <img src="img/star.png" alt="favorite channel"/></li>
-            <li>#BestQuotes <img src="img/star-o.png" alt="non-favorite channel"/></li>
-            <li>#PlacesToVisit <img src="img/star.png" alt="favorite channel"/></li>
+            <li onclick="switchChannel('#UniChannel');">#UniChannel <img src="img/star-o.png" alt="non-favorite channel"/></li>
+            <li onclick="switchChannel('#OneWorld');">#OneWorld <img src="img/star.png" alt="favorite channel"/></li>
+            <li class="selected" onclick="switchChannel('#WeatherChannel');">#WeatherChannel <img src="img/star.png" alt="favorite channel"/></li>
+            <li onclick="switchChannel('#BestQuotes');">#BestQuotes <img src="img/star-o.png" alt="non-favorite channel"/></li>
+            <li onclick="switchChannel('#PlacesToVisit');">#PlacesToVisit <img src="img/star.png" alt="favorite channel"/></li>
         </ul>
         <div class="tab-bar">
             <button class="selected"><img src="img/lightbulb-o.png" alt="New channels" /> New</button><!--
@@ -45,8 +31,8 @@
 
     <!--Chat Area-->
     <div class="area chat-area">
-        <h1>#WeatherChannel <small>by <span style="text-transform: uppercase;">
-            array.tempting.curable</span></small><img id="current-channel-star" src="img/star.png" alt="favorite channel"/></h1>
+        <h1><span id="current-channel-name">#WeatherChannel</span> <small>by <a id="channel-owner-location"
+            href="https://map.what3words.com/array.tempting.curable" target="_blank">array.tempting.curable</a></small><img id="current-channel-star" src="img/star.png" alt="favorite channel"/></h1>
         <div id="message-list">
             <div class="message own">
                     <h4><a href="https://map.what3words.com/array.tempting.curable" target="_blank"
@@ -73,85 +59,10 @@
                     <p>Enjoying the sun.</p>
                     <button>+5 min.</button>
                 </div>
-                <div class="message own">
-                        <h4><a href="https://map.what3words.com/array.tempting.curable" target="_blank"
-                                class="location">array.tempting.curable</a> 
-                            <span>Sun, Jun 3rd, 09:30</span> <em>15 min. left</em></h4>
-                        <p>The weather is hot today, it's about 36&deg;C.</p>
-                        <button>+5 min.</button>
-                    </div>
-                    <div class="message">
-                        <h4><a href="https://map.what3words.com/nationality.undone.outsourcing" target="_blank"
-                                class="location">nationality.undone.outsourcing</a> 
-                            <span>Sun, Jun 3rd, 09:35</span> <em>20 min. left</em></h4>
-                        <p>
-                            It's raining. May be the best time to play football. To play a football game under the rains is 
-                            a wonderful feeling. But, if there is mud then it will be one of the bad experiences.
-                                But any way "Let's win the game!!!!!!!!!!!!"
-                        </p>
-                        <button>+5 min.</button>
-                    </div>
-                    <div class="message">
-                        <h4><a href="https://map.what3words.com/wednesdays.watchers.coverage" target="_blank"
-                                class="location">wednesdays.watchers.coverage</a> 
-                            <span>Sun, Jun 3rd, 09:40</span> <em>25 min. left</em></h4>
-                        <p>Enjoying the sun.</p>
-                        <button>+5 min.</button>
-                    </div>
-                    <div class="message own">
-                            <h4><a href="https://map.what3words.com/array.tempting.curable" target="_blank"
-                                    class="location">array.tempting.curable</a> 
-                                <span>Sun, Jun 3rd, 09:30</span> <em>15 min. left</em></h4>
-                            <p>The weather is hot today, it's about 36&deg;C.</p>
-                            <button>+5 min.</button>
-                        </div>
-                        <div class="message">
-                            <h4><a href="https://map.what3words.com/nationality.undone.outsourcing" target="_blank"
-                                    class="location">nationality.undone.outsourcing</a> 
-                                <span>Sun, Jun 3rd, 09:35</span> <em>20 min. left</em></h4>
-                            <p>
-                                It's raining. May be the best time to play football. To play a football game under the rains is 
-                                a wonderful feeling. But, if there is mud then it will be one of the bad experiences.
-                                    But any way "Let's win the game!!!!!!!!!!!!"
-                            </p>
-                            <button>+5 min.</button>
-                        </div>
-                        <div class="message">
-                            <h4><a href="https://map.what3words.com/wednesdays.watchers.coverage" target="_blank"
-                                    class="location">wednesdays.watchers.coverage</a> 
-                                <span>Sun, Jun 3rd, 09:40</span> <em>25 min. left</em></h4>
-                            <p>Enjoying the sun.</p>
-                            <button>+5 min.</button>
-                        </div>
-                        <div class="message own">
-                                <h4><a href="https://map.what3words.com/array.tempting.curable" target="_blank"
-                                        class="location">array.tempting.curable</a> 
-                                    <span>Sun, Jun 3rd, 09:30</span> <em>15 min. left</em></h4>
-                                <p>The weather is hot today, it's about 36&deg;C.</p>
-                                <button>+5 min.</button>
-                            </div>
-                            <div class="message">
-                                <h4><a href="https://map.what3words.com/nationality.undone.outsourcing" target="_blank"
-                                        class="location">nationality.undone.outsourcing</a> 
-                                    <span>Sun, Jun 3rd, 09:35</span> <em>20 min. left</em></h4>
-                                <p>
-                                    It's raining. May be the best time to play football. To play a football game under the rains is 
-                                    a wonderful feeling. But, if there is mud then it will be one of the bad experiences.
-                                        But any way "Let's win the game!!!!!!!!!!!!"
-                                </p>
-                                <button>+5 min.</button>
-                            </div>
-                            <div class="message">
-                                <h4><a href="https://map.what3words.com/wednesdays.watchers.coverage" target="_blank"
-                                        class="location">wednesdays.watchers.coverage</a> 
-                                    <span>Sun, Jun 3rd, 09:40</span> <em>25 min. left</em></h4>
-                                <p>Enjoying the sun.</p>
-                                <button>+5 min.</button>
-                            </div>
         </div>
         <div id="chat-bar">
             <button id="emojis-button">
-                <img src="img/smile-o.png">
+                <img src="img/smile-o.png" alt="Emoji Icon" />
             </button>
             <div id="emojis"> 
                 🙂😃😣😅😅

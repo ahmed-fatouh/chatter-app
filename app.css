@@ -61,9 +61,15 @@ h1 {
     left: 5px;
 }
 
+#channel-owner-location{
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration-line: none;
+}
+
 #current-channel-star{
     position: absolute;
-    right: 5px;
+    right: 16px;
     top: 28px;
 }
 /*==========Channels List=============*/
