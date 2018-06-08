@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome-5.0.13/css/fontawesome-all.min.css" />
     <link rel="stylesheet" type="text/css" href="css/app.css" />
     <script src="js/jquery/jquery-3.3.1.min.js"></script>
+    <script src="js/channels.js"></script>
     <script src="js/main.js"></script>
 </head>
 
@@ -18,27 +19,32 @@
         <h1><img id="moocus" src="img/moocus.png" alt="Moocus Duck" style="height: 56px;"/>
             chatter|app</h1>
         <ul>
-            <li onclick="switchChannel('#UniChannel');">#UniChannel 
+            <li onclick="switchChannel(yummy);">#Yummy 
+                    <span class="star-chevron">
+                            <i class="far fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
+                    </span>
+            </li>
+            <li onclick="switchChannel(uniChannel);">#UniChannel 
                 <span class="star-chevron">
                         <i class="far fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
                 </span>
             </li>
-            <li onclick="switchChannel('#OneWorld');">#OneWorld 
+            <li onclick="switchChannel(oneWorld);">#OneWorld 
                 <span class="star-chevron">
                         <i class="fas fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
                 </span>
             </li>
-            <li class="selected" onclick="switchChannel('#WeatherChannel');">#WeatherChannel 
+            <li class="selected" onclick="switchChannel(weatherChannel);">#WeatherChannel 
                 <span class="star-chevron">
                         <i class="fas fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
                 </span>
             </li>
-            <li onclick="switchChannel('#BestQuotes');">#BestQuotes 
+            <li onclick="switchChannel(bestQuotes);">#BestQuotes 
                 <span class="star-chevron">
                         <i class="far fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
                 </span>
             </li>
-            <li onclick="switchChannel('#PlacesToVisit');">#PlacesToVisit 
+            <li onclick="switchChannel(placesToVisit);">#PlacesToVisit 
                 <span class="star-chevron">
                         <i class="fas fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
                 </span>
