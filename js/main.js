@@ -32,3 +32,37 @@ function selectTab(tabId){
 function toggleEmojiBox(){
     $('#emojis').toggle();
 }
+
+/* Message */
+
+function Message(text){
+    this.createdBy = currentLocation.what3words;
+    this.latitude = currentLocation.latitude;
+    this.longitude = currentLocation.longitude;
+    this.createdOn = new Date(Date.now());
+    this.expiresOn = new Date(Date.now() + 15 * 60000);
+    this.text = text;
+    this.own = true;
+}
+
+function sendMessage(){
+    message = new Message($('textarea').val())
+    console.log(message);
+    $('#message-list').append(createMessageElement(message));
+    $('#message-list').scrollTop($('#message-list')[0].scrollHeight);
+    $('textarea').val('');
+}
+
+function createMessageElement(messageObject){
+    htmlString = `
+        <div class="message ${currentLocation.what3words === messageObject.createdBy ? 'own' : ''}">
+            <h4><a href="https://map.what3words.com/${messageObject.createdBy}" target="_blank" 
+            class="location">${messageObject.createdBy}</a>
+            <span>${messageObject.createdOn.toUTCString()}</span> 
+            <em>${Math.round((messageObject.expiresOn - messageObject.createdOn)/(60*1000))} min. left</em></h4>
+            <p>${ messageObject.text}</p>
+            <button>+5 min.</button>
+        </div>
+    `;
+    return htmlString;
+}

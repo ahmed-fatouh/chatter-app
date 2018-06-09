@@ -171,11 +171,14 @@ li.selected {
     font-style: normal;
 }
 
+/*Chat Bar*/
+
 #chat-bar{
     width: 100%;
     height: 10%;
     position: absolute;
     bottom: 0%;
+    display: flex;
 }
 
 #emojis-button{
@@ -187,4 +190,23 @@ li.selected {
 
 #emojis{
     display: none;
+    position: absolute;
+    bottom: 100px;
+    left: 10px;
+    border: 1px solid black;
+}
+
+textarea {
+    height: 90%;
+    width: 90%;
+    border: 0;
+    font-size: 18px;
+}
+
+#send-button{
+    background-color: white;
+    border: 0;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 16px;
 }
