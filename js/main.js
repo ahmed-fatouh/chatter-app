@@ -81,11 +81,33 @@ function createChannelElement(channelObject){
     `);
 }
 
-function listChannels(){
-    createChannelElement(yummy);
-    createChannelElement(uniChannel);
-    createChannelElement(oneWorld);
-    createChannelElement(weatherChannel);
-    createChannelElement(bestQuotes);
-    createChannelElement(placesToVisit);
+function compareNew(channel1, channel2){
+    return channel2.createdOn - channel1.createdOn;
+}
+
+function compareTrending(channel1, channel2){
+    return channel2.messageCount - channel1.messageCount;
+}
+
+function compareFavorite(channel1, channel2){
+    return channel2.starred - channel1.starred;
+}
+
+function listChannels(mode){
+    var channels = [yummy, uniChannel, oneWorld, weatherChannel, bestQuotes, placesToVisit];
+    var sortedChannels;
+    switch (mode){
+        case 'new':
+            sortedChannels = channels.sort(compareNew);
+            break;
+        case 'trending':
+            sortedChannels = channels.sort(compareTrending);
+            break;
+        case 'favorites':
+            sortedChannels = channels.sort(compareTrending).sort(compareFavorite);
+    }
+    $('ul').empty();
+    for (i=0; i<sortedChannels.length; i++){
+        createChannelElement(sortedChannels[i]);
+    }
 }

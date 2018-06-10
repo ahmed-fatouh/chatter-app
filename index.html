@@ -13,16 +13,16 @@
     <script src="js/main.js"></script>
 </head>
 
-<body onload="listChannels()">
+<body onload="listChannels('new')">
     <!--Channels Area-->
     <div class="area channels-area">
         <h1><img id="moocus" src="img/moocus.png" alt="Moocus Duck" style="height: 56px;"/>
             chatter|app</h1>
         <ul></ul>
         <div class="tab-bar">
-            <button id="new-channels" onclick="selectTab('new-channels');" class="selected"><i class="far fa-lightbulb"></i><br/>New</button><!--
-            --><button id="trending-channels" onclick="selectTab('trending-channels');"><i class="fas fa-fire"></i><br/>Trending</button><!--
-            --><button id="favorite-channels" onclick="selectTab('favorite-channels');"><i class="fas fa-star"></i><br/>Favorites</button>
+            <button id="new-channels" onclick="selectTab('new-channels'); listChannels('new');" class="selected"><i class="far fa-lightbulb"></i><br/>New</button><!--
+            --><button id="trending-channels" onclick="selectTab('trending-channels'); listChannels('trending');"><i class="fas fa-fire"></i><br/>Trending</button><!--
+            --><button id="favorite-channels" onclick="selectTab('favorite-channels'); listChannels('favorites');"><i class="fas fa-star"></i><br/>Favorites</button>
         </div>    
     </div>
 
