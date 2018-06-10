@@ -75,6 +75,10 @@ h1 {
 }
 /*==========Channels List=============*/
 /*Channels List*/
+.channel{
+    text-transform: capitalize;
+}
+
 ul {
     list-style-type: none;
     height: 75%;
@@ -86,8 +90,9 @@ li{
     font-size: 16px;
     border-bottom: 1px solid #D3D3D3;
     height: 24px;
-    position: relative;
     font-size: 20px;
+    display: flex;
+    position: relative;
 }
 
 li.selected {
@@ -96,10 +101,18 @@ li.selected {
 }
 
 .star-chevron {
-    vertical-align: middle;
-    position: absolute;
-    right: 5px;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
     font-size: 24px;
+    position: absolute;
+    right: 0;
+}
+
+li .star-chevron span{
+    font-size: 16px;
+    background-color: #3F51B5;
+    color: white;
 }
 
 /*=============Tab Bar================*/

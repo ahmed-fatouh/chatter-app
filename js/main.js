@@ -9,7 +9,7 @@ var currentLocation = {
 
 function switchChannel(channel){
     console.log('Tuning into channel "' + channel.name + '".');
-    document.getElementById('current-channel-name').innerHTML = '#' + channel.name;
+    document.getElementById('current-channel-name').innerHTML = channel.name;
     document.getElementById('channel-owner-location').innerHTML = channel.createdBy;
     document.getElementById('channel-owner-location').href = 'https://map.what3words.com/' + channel.createdBy;
     $('#current-channel-star').removeClass('far fas').addClass(channel.starred ? 'fas' : 'far');
@@ -65,4 +65,27 @@ function createMessageElement(messageObject){
         </div>
     `;
     return htmlString;
+}
+
+function createChannelElement(channelObject){
+    $('ul').append(`
+    <li ${channelObject.name === currentChannel.name ? 'class="selected"' : ''}
+        onclick="switchChannel(${channelObject.name});">#<span class="channel">${channelObject.name}</span>
+    <span class="star-chevron">
+            <i class="${channelObject.starred ? 'fas' : 'far'} fa-star"></i>
+            <span>${channelObject.expiresIn} min.</span>
+            <span>${channelObject.messageCount} new</span>
+            <i class="fas fa-chevron-right"></i>
+    </span>
+</li>
+    `);
+}
+
+function listChannels(){
+    createChannelElement(yummy);
+    createChannelElement(uniChannel);
+    createChannelElement(oneWorld);
+    createChannelElement(weatherChannel);
+    createChannelElement(bestQuotes);
+    createChannelElement(placesToVisit);
 }

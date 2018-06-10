@@ -13,43 +13,12 @@
     <script src="js/main.js"></script>
 </head>
 
-<body>
+<body onload="listChannels()">
     <!--Channels Area-->
     <div class="area channels-area">
         <h1><img id="moocus" src="img/moocus.png" alt="Moocus Duck" style="height: 56px;"/>
             chatter|app</h1>
-        <ul>
-            <li onclick="switchChannel(yummy);">#Yummy 
-                    <span class="star-chevron">
-                            <i class="far fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
-                    </span>
-            </li>
-            <li onclick="switchChannel(uniChannel);">#UniChannel 
-                <span class="star-chevron">
-                        <i class="far fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
-                </span>
-            </li>
-            <li onclick="switchChannel(oneWorld);">#OneWorld 
-                <span class="star-chevron">
-                        <i class="fas fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
-                </span>
-            </li>
-            <li class="selected" onclick="switchChannel(weatherChannel);">#WeatherChannel 
-                <span class="star-chevron">
-                        <i class="fas fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
-                </span>
-            </li>
-            <li onclick="switchChannel(bestQuotes);">#BestQuotes 
-                <span class="star-chevron">
-                        <i class="far fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
-                </span>
-            </li>
-            <li onclick="switchChannel(placesToVisit);">#PlacesToVisit 
-                <span class="star-chevron">
-                        <i class="fas fa-star"></i>&nbsp;<i class="fas fa-chevron-right"></i>
-                </span>
-            </li>
-        </ul>
+        <ul></ul>
         <div class="tab-bar">
             <button id="new-channels" onclick="selectTab('new-channels');" class="selected"><i class="far fa-lightbulb"></i><br/>New</button><!--
             --><button id="trending-channels" onclick="selectTab('trending-channels');"><i class="fas fa-fire"></i><br/>Trending</button><!--
@@ -59,7 +28,7 @@
 
     <!--Chat Area-->
     <div class="area chat-area">
-        <h1><span id="current-channel-name">#WeatherChannel</span> <small>by <a id="channel-owner-location"
+        <h1>#<span id="current-channel-name" class="channel">weatherChannel</span> <small>by <a id="channel-owner-location"
             href="https://map.what3words.com/array.tempting.curable" target="_blank">array.tempting.curable</a></small>
             <i id="current-channel-star" class="fas fa-star" onclick="toggleStar();"></i></h1>
         <div id="message-list">

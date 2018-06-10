@@ -1,5 +1,5 @@
 var yummy = {
-    name: 'Yummy',
+    name: 'yummy',
     createdOn: new Date(2016, 4, 1),
     createdBy: 'minus.plus.yummy',
     starred: false,
@@ -8,7 +8,7 @@ var yummy = {
 };
 
 var weatherChannel = {
-    name: 'WeatherChannel',
+    name: 'weatherChannel',
     createdOn: new Date(2018, 6, 4),
     createdBy: 'array.tempting.curable',
     starred: true,
@@ -17,7 +17,7 @@ var weatherChannel = {
 };
 
 var uniChannel = {
-    name: 'UniChannel',
+    name: 'uniChannel',
     createdOn: new Date(2018, 4, 16),
     createdBy: 'nationality.undone.outsourcing',
     starred: false,
@@ -26,7 +26,7 @@ var uniChannel = {
 };
 
 var oneWorld = {
-    name: 'OneWorld',
+    name: 'oneWorld',
     createdOn: new Date(2018, 5, 15),
     createdBy: 'wednesdays.watchers.coverage',
     starred: true,
@@ -35,7 +35,7 @@ var oneWorld = {
 };
 
 var bestQuotes = {
-    name: 'BestQuotes',
+    name: 'bestQuotes',
     createdOn: new Date(2018, 3, 7),
     createdBy: 'nationality.undone.outsourcing',
     starred: false,
@@ -44,7 +44,7 @@ var bestQuotes = {
 };
 
 var placesToVisit = {
-    name: 'PlacesToVisit',
+    name: 'placesToVisit',
     createdOn: new Date(2018, 5, 1),
     createdBy: 'upgrading.never.helps',
     starred: true,
