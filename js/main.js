@@ -7,6 +7,12 @@ var currentLocation = {
     what3words: 'array.tempting.curable'
 };
 
+function showMessages(channel){
+    for (i=0; i<channel.messages.length; i++){
+        $("#message-list").append(createMessageElement(channel.messages[i]));
+    }
+}
+
 function switchChannel(channel){
     console.log('Tuning into channel "' + channel.name + '".');
     document.getElementById('current-channel-name').innerHTML = channel.name;
@@ -16,6 +22,8 @@ function switchChannel(channel){
     $('li').removeClass('selected');
     $('li:contains(' + channel.name + ')').addClass('selected');
     currentChannel = channel;
+    $("#message-list").empty();
+    showMessages(currentChannel);
 }
 
 function toggleStar(){
@@ -46,8 +54,14 @@ function Message(text){
 }
 
 function sendMessage(){
-    message = new Message($('textarea').val())
+    var messageText = $('textarea').val();
+    if (messageText.length == 0){
+        return;
+    };
+    message = new Message(messageText);
     console.log(message);
+    currentChannel.messages.push(message);
+    currentChannel.messageCount += 1;
     $('#message-list').append(createMessageElement(message));
     $('#message-list').scrollTop($('#message-list')[0].scrollHeight);
     $('textarea').val('');

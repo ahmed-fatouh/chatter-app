@@ -4,7 +4,8 @@ var yummy = {
     createdBy: 'minus.plus.yummy',
     starred: false,
     expiresIn: 100,
-    messageCount: 999
+    messageCount: 999,
+    messages: []
 };
 
 var weatherChannel = {
@@ -13,7 +14,8 @@ var weatherChannel = {
     createdBy: 'array.tempting.curable',
     starred: true,
     expiresIn: 300,
-    messageCount: 100
+    messageCount: 100,
+    messages: []
 };
 
 var uniChannel = {
@@ -22,7 +24,8 @@ var uniChannel = {
     createdBy: 'nationality.undone.outsourcing',
     starred: false,
     expiresIn: 200,
-    messageCount: 400
+    messageCount: 400,
+    messages: []
 };
 
 var oneWorld = {
@@ -31,7 +34,8 @@ var oneWorld = {
     createdBy: 'wednesdays.watchers.coverage',
     starred: true,
     expiresIn: 500,
-    messageCount: 888
+    messageCount: 888,
+    messages: []
 };
 
 var bestQuotes = {
@@ -40,7 +44,8 @@ var bestQuotes = {
     createdBy: 'nationality.undone.outsourcing',
     starred: false,
     expiresIn: 50,
-    messageCount: 557
+    messageCount: 557,
+    messages: []
 };
 
 var placesToVisit = {
@@ -49,5 +54,6 @@ var placesToVisit = {
     createdBy: 'upgrading.never.helps',
     starred: true,
     expiresIn: 400,
-    messageCount: 999
+    messageCount: 999,
+    messages: []
 };

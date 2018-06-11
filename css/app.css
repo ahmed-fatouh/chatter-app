@@ -28,9 +28,10 @@ body{
 button{
     color: black;
     background-color: #FF4081;
-    border-color: #FF4081;
+    border: 0;
     text-transform: uppercase;
     text-align: center;
+    cursor: pointer;
 }
 
 .channels-area{
@@ -72,6 +73,7 @@ h1 {
     font-size: 24px;
     right: 16px;
     top: 28px;
+    cursor: pointer;
 }
 /*==========Channels List=============*/
 /*Channels List*/
@@ -81,7 +83,7 @@ h1 {
 
 ul {
     list-style-type: none;
-    height: 75%;
+    height: 70%;
     overflow: auto;
 }
 
@@ -93,6 +95,7 @@ li{
     font-size: 20px;
     display: flex;
     position: relative;
+    cursor: pointer;
 }
 
 li.selected {
@@ -115,6 +118,22 @@ li .star-chevron span{
     color: white;
 }
 
+.channels-area {
+    position: absolute;
+}
+
+#add-channel-btn{
+    border-radius: 50%;
+    background-color: #FF4081;
+    padding: 2.5%;
+    position: absolute;
+    right: 16px;
+    bottom: 11%;
+    font-size: large;
+    font-weight: bold;
+    box-shadow: 3px 3px 3px #D3D3D3
+}
+
 /*=============Tab Bar================*/
 /*Group of buttons under the channels list*/
 .tab-bar {
@@ -131,7 +150,6 @@ li .star-chevron span{
     padding: 16px;
     font-size: 18px;
     background-color: white;
-    border: 0;
 }
 
 .tab-bar button.selected{
@@ -196,7 +214,6 @@ li .star-chevron span{
 
 #emojis-button{
     background-color: white;
-    border: 0;
     margin: 16px;
     font-size: 24px;
 }
@@ -212,13 +229,12 @@ li .star-chevron span{
 textarea {
     height: 90%;
     width: 90%;
-    border: 0;
     font-size: 18px;
+    border: 0;
 }
 
 #send-button{
     background-color: white;
-    border: 0;
     font-size: 24px;
     font-weight: bold;
     margin: 16px;

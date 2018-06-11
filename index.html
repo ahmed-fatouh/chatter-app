@@ -18,7 +18,8 @@
     <div class="area channels-area">
         <h1><img id="moocus" src="img/moocus.png" alt="Moocus Duck" style="height: 56px;"/>
             chatter|app</h1>
-        <ul></ul>
+        <ul><!--Channels List lies here--></ul>
+        <button id="add-channel-btn"><i class="fas fa-plus"></i></button>
         <div class="tab-bar">
             <button id="new-channels" onclick="selectTab('new-channels'); listChannels('new');" class="selected"><i class="far fa-lightbulb"></i><br/>New</button><!--
             --><button id="trending-channels" onclick="selectTab('trending-channels'); listChannels('trending');"><i class="fas fa-fire"></i><br/>Trending</button><!--
@@ -32,6 +33,7 @@
             href="https://map.what3words.com/array.tempting.curable" target="_blank">array.tempting.curable</a></small>
             <i id="current-channel-star" class="fas fa-star" onclick="toggleStar();"></i></h1>
         <div id="message-list">
+            <!--
             <div class="message own">
                     <h4><a href="https://map.what3words.com/array.tempting.curable" target="_blank"
                             class="location">array.tempting.curable</a> 
@@ -57,6 +59,7 @@
                     <p>Enjoying the sun.</p>
                     <button>+5 min.</button>
                 </div>
+                -->
         </div>
         <!--Chat Bar-->
         <div id="chat-bar">
