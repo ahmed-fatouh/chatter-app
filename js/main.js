@@ -6,24 +6,33 @@ var currentLocation = {
     latitude: 4.526062,
     what3words: 'array.tempting.curable'
 };
+var channelsDict = {'yummy': yummy, 'uniChannel': uniChannel, 'oneWorld': oneWorld,
+                'weatherChannel': weatherChannel, 'bestQuotes': bestQuotes, 'placesToVisit': placesToVisit};
 
-function showMessages(channel){
-    for (i=0; i<channel.messages.length; i++){
-        $("#message-list").append(createMessageElement(channel.messages[i]));
-    }
+function showMessages(channelObject){
+    channelObject.messages.forEach(function(message) {
+        $("#message-list").append(createMessageElement(message));
+    }); 
 }
 
-function switchChannel(channel){
-    console.log('Tuning into channel "' + channel.name + '".');
-    document.getElementById('current-channel-name').innerHTML = channel.name;
-    document.getElementById('channel-owner-location').innerHTML = channel.createdBy;
-    document.getElementById('channel-owner-location').href = 'https://map.what3words.com/' + channel.createdBy;
-    $('#current-channel-star').removeClass('far fas').addClass(channel.starred ? 'fas' : 'far');
+function switchChannel(channelObject){
+    console.log('Tuning into channel "' + channelObject.name + '".');
+    $('textarea').val('');
+    $('.chat-area h1').empty().append(`
+        <span>#<span id="current-channel-name" class="channel">${channelObject.name}</span>&nbsp;
+        <small>by <a id="channel-owner-location" href="https://map.what3words.com/${channelObject.createdBy}"
+        target="_blank">${channelObject.createdBy}</a></small></span>
+        <i id="current-channel-star" class="${channelObject.starred ? 'fas' : 'far'}
+         fa-star" onclick="toggleStar();"></i>
+    `);
     $('li').removeClass('selected');
-    $('li:contains(' + channel.name + ')').addClass('selected');
-    currentChannel = channel;
+    $('li:contains(' + channelObject.name + ')').addClass('selected');
+    currentChannel = channelObject;
     $("#message-list").empty();
     showMessages(currentChannel);
+    $("#create-btn").remove();
+    $("#send-button").remove();
+    $('#chat-bar').append('<button id="send-button" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>');
 }
 
 function toggleStar(){
@@ -84,7 +93,7 @@ function createMessageElement(messageObject){
 function createChannelElement(channelObject){
     $('ul').append(`
     <li ${channelObject.name === currentChannel.name ? 'class="selected"' : ''}
-        onclick="switchChannel(${channelObject.name});">#<span class="channel">${channelObject.name}</span>
+        onclick="switchChannel(channelsDict['${channelObject.name}']);">#<span class="channel">${channelObject.name}</span>
     <span class="star-chevron">
             <i class="${channelObject.starred ? 'fas' : 'far'} fa-star"></i>
             <span>${channelObject.expiresIn} min.</span>
@@ -108,7 +117,10 @@ function compareFavorite(channel1, channel2){
 }
 
 function listChannels(mode){
-    var channels = [yummy, uniChannel, oneWorld, weatherChannel, bestQuotes, placesToVisit];
+    var channels = [];
+    for (key in channelsDict){
+        channels.push(channelsDict[key]);
+    };
     var sortedChannels;
     switch (mode){
         case 'new':
@@ -123,5 +135,42 @@ function listChannels(mode){
     $('ul').empty();
     for (i=0; i<sortedChannels.length; i++){
         createChannelElement(sortedChannels[i]);
+    }
+}
+
+function addNewChannel(){
+    $('li').removeClass('selected');
+    $('.message').remove();
+    $('.chat-area h1').empty().append(`
+        <input type="text" placeholder="Enter a #ChannelName" />
+        <button onclick="switchChannel(currentChannel)"><i class="fas fa-times"></i> Abort</button>
+    `);
+    $("#send-button").remove();
+    $("#create-btn").remove();
+    $('#chat-bar').append('<button id="create-btn" onclick="createChannel()">CREATE</button>');
+}
+
+function Channel(channelName){
+    this.name = channelName;
+    this.createdOn = new Date(Date.now());
+    this.createdBy = currentLocation.what3words;
+    this.starred = true;
+    this.expiresIn = 100;
+    this.messageCount = 0;
+    this.messages = [];
+}
+
+function createChannel(){
+    var newChannelName = $('h1 input').val();
+    var message = $('textarea').val();
+    if (newChannelName.length > 0 && message.length > 0 &&
+        newChannelName.indexOf(' ') === -1 && newChannelName.indexOf('#') === 0){
+        var newChannelObject = new Channel(newChannelName.slice(1));
+        channelsDict[`${newChannelObject.name}`] = newChannelObject;
+        currentChannel = newChannelObject;
+        sendMessage();
+        selectTab('new-channels');
+        listChannels('new');
+        switchChannel(newChannelObject);
     }
 }

@@ -19,7 +19,7 @@
         <h1><img id="moocus" src="img/moocus.png" alt="Moocus Duck" style="height: 56px;"/>
             chatter|app</h1>
         <ul><!--Channels List lies here--></ul>
-        <button id="add-channel-btn"><i class="fas fa-plus"></i></button>
+        <button id="add-channel-btn" onclick="addNewChannel()"><i class="fas fa-plus"></i></button>
         <div class="tab-bar">
             <button id="new-channels" onclick="selectTab('new-channels'); listChannels('new');" class="selected"><i class="far fa-lightbulb"></i><br/>New</button><!--
             --><button id="trending-channels" onclick="selectTab('trending-channels'); listChannels('trending');"><i class="fas fa-fire"></i><br/>Trending</button><!--
@@ -29,8 +29,8 @@
 
     <!--Chat Area-->
     <div class="area chat-area">
-        <h1>#<span id="current-channel-name" class="channel">weatherChannel</span> <small>by <a id="channel-owner-location"
-            href="https://map.what3words.com/array.tempting.curable" target="_blank">array.tempting.curable</a></small>
+        <h1><span>#<span id="current-channel-name" class="channel">weatherChannel</span>&nbsp;<small>by <a id="channel-owner-location"
+            href="https://map.what3words.com/array.tempting.curable" target="_blank">array.tempting.curable</a></small></span>
             <i id="current-channel-star" class="fas fa-star" onclick="toggleStar();"></i></h1>
         <div id="message-list">
             <!--
@@ -76,4 +76,3 @@
  
 </body>
 </html>
-
