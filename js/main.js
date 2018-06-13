@@ -1,3 +1,5 @@
+"use strict";
+
 console.log('App is alive');
 
 var currentChannel = weatherChannel;
@@ -10,9 +12,10 @@ var channelsDict = {'yummy': yummy, 'uniChannel': uniChannel, 'oneWorld': oneWor
                 'weatherChannel': weatherChannel, 'bestQuotes': bestQuotes, 'placesToVisit': placesToVisit};
 
 function showMessages(channelObject){
-    channelObject.messages.forEach(function(message) {
-        $("#message-list").append(createMessageElement(message));
-    }); 
+    $("#message-list").empty();
+    channelObject.messages.forEach(function(message, index) {
+        $("#message-list").append(createMessageElement(message, index));
+    });
 }
 
 function switchChannel(channelObject){
@@ -28,7 +31,6 @@ function switchChannel(channelObject){
     $('li').removeClass('selected');
     $('li:contains(' + channelObject.name + ')').addClass('selected');
     currentChannel = channelObject;
-    $("#message-list").empty();
     showMessages(currentChannel);
     $("#create-btn").remove();
     $("#send-button").remove();
@@ -57,7 +59,7 @@ function Message(text){
     this.latitude = currentLocation.latitude;
     this.longitude = currentLocation.longitude;
     this.createdOn = new Date(Date.now());
-    this.expiresOn = new Date(Date.now() + 15 * 60000);
+    this.expiresOn = new Date(Date.now() + 0.5 * 60000);
     this.text = text;
     this.own = true;
 }
@@ -67,27 +69,44 @@ function sendMessage(){
     if (messageText.length == 0){
         return;
     };
-    message = new Message(messageText);
+    var message = new Message(messageText);
     console.log(message);
     currentChannel.messages.push(message);
     currentChannel.messageCount += 1;
-    $('#message-list').append(createMessageElement(message));
+    showMessages(currentChannel);
     $('#message-list').scrollTop($('#message-list')[0].scrollHeight);
     $('textarea').val('');
 }
 
-function createMessageElement(messageObject){
-    htmlString = `
-        <div class="message ${currentLocation.what3words === messageObject.createdBy ? 'own' : ''}">
+function createMessageElement(messageObject, index){
+    var remainingTime = (messageObject.expiresOn - new Date(Date.now()))/(60*1000);
+    if (remainingTime <= 0){
+        currentChannel.messages.splice(index, 1);
+        currentChannel.messageCount -= 1;
+        return;
+    };
+    var htmlString = `
+        <div id=${index} class="message ${currentLocation.what3words === messageObject.createdBy ? 'own' : ''}">
             <h4><a href="https://map.what3words.com/${messageObject.createdBy}" target="_blank" 
             class="location">${messageObject.createdBy}</a>
             <span>${messageObject.createdOn.toUTCString()}</span> 
-            <em>${Math.round((messageObject.expiresOn - messageObject.createdOn)/(60*1000))} min. left</em></h4>
+            <em ${remainingTime <= 5 ? 'style="color: #3F51B5;"' : ''}>
+                ${Math.round(remainingTime * 10) / 10} min. left
+            </em></h4>
             <p>${ messageObject.text}</p>
-            <button>+5 min.</button>
+            <button onclick="extendMessageLifetime(${index});">+5 min.</button>
         </div>
     `;
     return htmlString;
+}
+
+function extendMessageLifetime(messageIndex){
+    console.log(currentChannel);
+    console.log(currentChannel.messages);
+    console.log(currentChannel.messages[messageIndex].expiresOn);
+    currentChannel.messages[messageIndex].expiresOn =  
+        new Date(currentChannel.messages[messageIndex].expiresOn.getTime() + 0.5 * 60 * 1000);
+    showMessages(currentChannel);
 }
 
 function createChannelElement(channelObject){
@@ -118,7 +137,7 @@ function compareFavorite(channel1, channel2){
 
 function listChannels(mode){
     var channels = [];
-    for (key in channelsDict){
+    for (var key in channelsDict){
         channels.push(channelsDict[key]);
     };
     var sortedChannels;
@@ -133,7 +152,7 @@ function listChannels(mode){
             sortedChannels = channels.sort(compareTrending).sort(compareFavorite);
     }
     $('ul').empty();
-    for (i=0; i<sortedChannels.length; i++){
+    for (var i=0; i<sortedChannels.length; i++){
         createChannelElement(sortedChannels[i]);
     }
 }
@@ -174,3 +193,8 @@ function createChannel(){
         switchChannel(newChannelObject);
     }
 }
+
+setInterval(function(){
+    console.log('Updating current channel messages...');
+    showMessages(currentChannel);
+}, 10000)
