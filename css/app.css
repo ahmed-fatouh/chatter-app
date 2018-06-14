@@ -26,8 +26,6 @@ body{
 }
 
 button{
-    color: black;
-    background-color: #FF4081;
     border: 0;
     text-transform: uppercase;
     text-align: center;
@@ -44,6 +42,30 @@ button{
     position: absolute;
     right: 0;
     width: 60%;
+}
+
+.primary {
+    background-color: #3F51B5;
+    color: #FFFFFF;
+}
+
+.primary:hover {
+    /*Darken the indigo background by 15% (hexcolortool.com)*/
+    background-color: #192B8F
+}
+
+.accent {
+    background-color: #FF4081;
+    color: #000000;
+}
+
+.accent:hover {
+    /*Darken the pink background by 15% (hexcolortool.com)*/
+    background-color: #D91A5B;
+}
+
+button:focus, textarea:focus {
+    outline: 0;
 }
 
 /*=============App Bar================*/
@@ -144,7 +166,6 @@ li .star-chevron span{
 
 #add-channel-btn{
     border-radius: 50%;
-    background-color: #FF4081;
     padding: 2.5%;
     position: absolute;
     right: 16px;
@@ -190,13 +211,16 @@ li .star-chevron span{
     margin-left: 2.5%;
     background-color: white;
     padding: 16px;
-    position: relative;
 }
 
 .message button {
-    position: absolute;
-    right: 16px;
-    bottom: 8px;
+    padding: 1% 2%;
+}
+
+/*Message body and lifetime extension button*/
+.message div{
+    display: flex;
+    justify-content: space-between;
 }
 
 /*Message from the current user*/
@@ -233,9 +257,10 @@ li .star-chevron span{
 }
 
 #emojis-button{
-    background-color: white;
-    margin: 16px;
+    padding: 0 16px;
     font-size: 24px;
+    margin: 16px;
+    height: 34px;
 }
 
 #emojis{
@@ -254,15 +279,16 @@ textarea {
 }
 
 #send-button{
-    background-color: white;
     font-size: 24px;
     font-weight: bold;
     margin: 16px;
+    height: 34px;
+    padding: 0 16px;
 }
 
 /*Create channel*/
 #create-btn{
-    padding: 0.5% 1%;
+    padding: 1%;
     margin: 1%;
     align-self: center;
 }

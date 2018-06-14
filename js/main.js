@@ -25,8 +25,8 @@ function switchChannel(channelObject){
         <span>#<span id="current-channel-name" class="channel">${channelObject.name}</span>&nbsp;
         <small>by <a id="channel-owner-location" href="https://map.what3words.com/${channelObject.createdBy}"
         target="_blank">${channelObject.createdBy}</a></small></span>
-        <i id="current-channel-star" class="${channelObject.starred ? 'fas' : 'far'}
-         fa-star" onclick="toggleStar();"></i>
+        <button id="current-channel-star" class="primary"><i class="${channelObject.starred ? 'fas' : 'far'}
+         fa-star" onclick="toggleStar();"></i></button>
     `);
     $('li').removeClass('selected');
     $('li:contains(' + channelObject.name + ')').addClass('selected');
@@ -34,11 +34,11 @@ function switchChannel(channelObject){
     showMessages(currentChannel);
     $("#create-btn").remove();
     $("#send-button").remove();
-    $('#chat-bar').append('<button id="send-button" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>');
+    $('#chat-bar').append('<button id="send-button" class="accent" onclick="sendMessage()"><i class="fas fa-arrow-right"></i></button>');
 }
 
 function toggleStar(){
-    $('#current-channel-star').toggleClass('far fas');
+    $('#current-channel-star i').toggleClass('far fas');
     currentChannel.starred = !currentChannel.starred;
     $('li:contains('+currentChannel.name+') i.fa-star').toggleClass('far fas');
 }
@@ -93,8 +93,10 @@ function createMessageElement(messageObject, index){
             <em ${remainingTime <= 5 ? 'style="color: #3F51B5;"' : ''}>
                 ${Math.round(remainingTime * 10) / 10} min. left
             </em></h4>
-            <p>${ messageObject.text}</p>
-            <button onclick="extendMessageLifetime(${index});">+5 min.</button>
+            <div>
+                <p>${ messageObject.text}</p>
+                <button class="accent" onclick="extendMessageLifetime(${index});">+5 min.</button>
+            </div>
         </div>
     `;
     return htmlString;
@@ -166,7 +168,7 @@ function addNewChannel(){
     `);
     $("#send-button").remove();
     $("#create-btn").remove();
-    $('#chat-bar').append('<button id="create-btn" onclick="createChannel()">CREATE</button>');
+    $('#chat-bar').append('<button id="create-btn" class="accent" onclick="createChannel()">CREATE</button>');
 }
 
 function Channel(channelName){
@@ -197,4 +199,4 @@ function createChannel(){
 setInterval(function(){
     console.log('Updating current channel messages...');
     showMessages(currentChannel);
-}, 10000)
+}, 1000000)
