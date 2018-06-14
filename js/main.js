@@ -117,8 +117,8 @@ function createChannelElement(channelObject){
         onclick="switchChannel(channelsDict['${channelObject.name}']);">#<span class="channel">${channelObject.name}</span>
     <span class="star-chevron">
             <i class="${channelObject.starred ? 'fas' : 'far'} fa-star"></i>
-            <span>${channelObject.expiresIn} min.</span>
-            <span>${channelObject.messageCount} new</span>
+            <span class="primary">${channelObject.expiresIn} min.</span>
+            <span class="primary">${channelObject.messageCount} new</span>
             <i class="fas fa-chevron-right"></i>
     </span>
 </li>

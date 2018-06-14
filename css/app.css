@@ -36,6 +36,8 @@ button{
     position: absolute;
     left: 0;
     width: 40%;
+    z-index: 2;
+    box-shadow: 2px 0 10px grey;
 }
 
 .chat-area{
@@ -76,6 +78,9 @@ h1 {
     height: 80px;
     line-height: 80px;
     padding-left: 5px;
+    box-shadow: 0 2px 10px grey;
+    position: relative;
+    z-index: 1;
 }
 
 #moocus {
@@ -102,6 +107,7 @@ h1 {
 .chat-area h1 {
     display: flex;
     align-items: center;
+    padding-left: 16px;
 }
 
 .chat-area h1 input{
@@ -132,12 +138,12 @@ ul {
 li{
     padding: 16px;
     font-size: 16px;
-    border-bottom: 1px solid #D3D3D3;
     height: 24px;
     font-size: 20px;
     display: flex;
     position: relative;
     cursor: pointer;
+    border: 1px solid #D3D3D3;
 }
 
 li.selected {
@@ -154,7 +160,7 @@ li.selected {
     right: 0;
 }
 
-li .star-chevron span{
+.star-chevron span{
     font-size: 16px;
     background-color: #3F51B5;
     color: white;
@@ -169,10 +175,10 @@ li .star-chevron span{
     padding: 2.5%;
     position: absolute;
     right: 16px;
-    bottom: 11%;
+    bottom: 13%;
     font-size: large;
     font-weight: bold;
-    box-shadow: 3px 3px 3px #D3D3D3
+    box-shadow: 3px 3px 10px grey;
 }
 
 /*=============Tab Bar================*/
@@ -182,6 +188,7 @@ li .star-chevron span{
     bottom: 0;
     right: 0;
     left: 0;
+    box-shadow: 0 -2px 10px grey;
 }
 
 .tab-bar button{
@@ -207,10 +214,12 @@ li .star-chevron span{
 
 .message {
     width: 80%;
-    margin-bottom: 8px;
+    margin-top: 8px;
     margin-left: 2.5%;
     background-color: white;
     padding: 16px;
+    position: relative;
+    box-shadow: 0 2px 5px grey;
 }
 
 .message button {
@@ -254,6 +263,8 @@ li .star-chevron span{
     position: absolute;
     bottom: 0%;
     display: flex;
+    align-items: center;
+    box-shadow: 0 -2px 10px grey;
 }
 
 #emojis-button{
@@ -268,11 +279,11 @@ li .star-chevron span{
     position: absolute;
     bottom: 100px;
     left: 10px;
-    border: 1px solid black;
+    box-shadow: 2px -2px 10px grey;
 }
 
 textarea {
-    height: 90%;
+    height: 80%;
     width: 90%;
     font-size: 18px;
     border: 0;
