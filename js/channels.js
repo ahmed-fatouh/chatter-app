@@ -14,8 +14,9 @@ var weatherChannel = {
     createdBy: 'array.tempting.curable',
     starred: true,
     expiresIn: 300,
-    messageCount: 100,
-    messages: []
+    messageCount: 1,
+    messages: [{createdOn: new Date(Date.now()),createdBy: 'nationality.undone.outsourcing',
+        expiresOn: new Date(Date.now() + 0.5 * 60000), text:'lala'}]
 };
 
 var uniChannel = {

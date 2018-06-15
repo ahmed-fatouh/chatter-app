@@ -11,9 +11,25 @@ var currentLocation = {
 var channelsDict = {'yummy': yummy, 'uniChannel': uniChannel, 'oneWorld': oneWorld,
                 'weatherChannel': weatherChannel, 'bestQuotes': bestQuotes, 'placesToVisit': placesToVisit};
 
-function showMessages(channelObject){
+function deleteDeadMessages(){
+    var deletionStatus = 0;
+    var messages = currentChannel.messages;
+    for(var i=messages.length-1; i>=0; i--){
+        var remainingTime = (messages[i].expiresOn - new Date(Date.now()))/(60*1000);
+        if (remainingTime <= 0){
+            currentChannel.messages.splice(i, 1);
+            currentChannel.messageCount -= 1;
+            deletionStatus = 1;
+            $(`li:contains(${currentChannel.name}) * span:last`).html(currentChannel.messageCount + ' new');
+        }
+    }
+    return deletionStatus
+}
+
+function showMessages(){
+    deleteDeadMessages(currentChannel);
     $("#message-list").empty();
-    channelObject.messages.forEach(function(message, index) {
+    currentChannel.messages.forEach(function(message, index) {
         $("#message-list").append(createMessageElement(message, index));
     });
 }
@@ -73,25 +89,37 @@ function sendMessage(){
     console.log(message);
     currentChannel.messages.push(message);
     currentChannel.messageCount += 1;
-    showMessages(currentChannel);
+    $(`li:contains(${currentChannel.name}) * span:last`).html(currentChannel.messageCount + ' new');
+    showMessages();
     $('#message-list').scrollTop($('#message-list')[0].scrollHeight);
     $('textarea').val('');
 }
 
+function updateMessages(){
+    if (!deleteDeadMessages()) {
+        currentChannel.messages.forEach(function (messageObject, index){
+            var remainingTime = (messageObject.expiresOn - new Date(Date.now()))/(60*1000);
+            $(`#${index}.message em span`).html(Math.round(remainingTime * 10) / 10);
+            if (remainingTime <= 5) {
+                $(`#${index}.message em`).css('color', '#3F51B5');
+            }
+        })
+    }
+    else {
+        showMessages();
+    }
+    
+}
+
 function createMessageElement(messageObject, index){
     var remainingTime = (messageObject.expiresOn - new Date(Date.now()))/(60*1000);
-    if (remainingTime <= 0){
-        currentChannel.messages.splice(index, 1);
-        currentChannel.messageCount -= 1;
-        return;
-    };
     var htmlString = `
         <div id=${index} class="message ${currentLocation.what3words === messageObject.createdBy ? 'own' : ''}">
             <h4><a href="https://map.what3words.com/${messageObject.createdBy}" target="_blank" 
             class="location">${messageObject.createdBy}</a>
             <span>${messageObject.createdOn.toUTCString()}</span> 
             <em ${remainingTime <= 5 ? 'style="color: #3F51B5;"' : ''}>
-                ${Math.round(remainingTime * 10) / 10} min. left
+                <span>${Math.round(remainingTime * 10) / 10}</span> min. left
             </em></h4>
             <div>
                 <p>${ messageObject.text}</p>
@@ -110,6 +138,8 @@ function extendMessageLifetime(messageIndex){
         new Date(currentChannel.messages[messageIndex].expiresOn.getTime() + 0.5 * 60 * 1000);
     showMessages(currentChannel);
 }
+
+
 
 function createChannelElement(channelObject){
     $('ul').append(`
@@ -157,6 +187,7 @@ function listChannels(mode){
     for (var i=0; i<sortedChannels.length; i++){
         createChannelElement(sortedChannels[i]);
     }
+    showMessages(currentChannel);
 }
 
 function addNewChannel(){
@@ -198,5 +229,5 @@ function createChannel(){
 
 setInterval(function(){
     console.log('Updating current channel messages...');
-    showMessages(currentChannel);
-}, 1000000)
+    updateMessages();
+}, 10000)
