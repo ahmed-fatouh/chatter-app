@@ -24,7 +24,7 @@ var uniChannel = {
     createdOn: new Date(2018, 3, 16),
     createdBy: 'nationality.undone.outsourcing',
     starred: false,
-    expiresIn: 200,
+    expiresIn: 1,
     messageCount: 400,
     messages: []
 };

@@ -227,7 +227,23 @@ function createChannel(){
     }
 }
 
+function updateChannels(){
+    for (var key in channelsDict){
+        channelsDict[key].expiresIn -= 1;
+        $(`li:contains(${channelsDict[key].name}) * span:first`).html(channelsDict[key].expiresIn + ' min.')
+        if (channelsDict[key].expiresIn <= 0){
+            $(`li:contains(${channelsDict[key].name})`).remove();
+            delete(channelsDict[key]);
+        }
+    }
+}
+
 setInterval(function(){
     console.log('Updating current channel messages...');
     updateMessages();
 }, 10000)
+
+setInterval(function(){
+    console.log('Updating current channel messages...');
+    updateChannels();
+}, 60000)
