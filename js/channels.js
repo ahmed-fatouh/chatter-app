@@ -5,7 +5,14 @@ var yummy = {
     starred: false,
     expiresIn: 100,
     messageCount: 999,
-    messages: []
+    messages: [{createdOn: new Date(Date.now()),createdBy: 'nationality.undone.outsourcing',
+        expiresOn: new Date(Date.now() + 2.5 * 60000), text:'Yummy'},
+        {createdOn: new Date(Date.now()),createdBy: 'array.tempting.curable',
+        expiresOn: new Date(Date.now() + 3 * 60000), text:'Yummy'},
+        {createdOn: new Date(Date.now()),createdBy: 'wednesdays.watchers.coverage',
+        expiresOn: new Date(Date.now() + 3.5 * 60000), text:'Yummy'},
+        {createdOn: new Date(Date.now()),createdBy: 'array.tempting.curable',
+        expiresOn: new Date(Date.now() + 4 * 60000), text:'Yummy'}]
 };
 
 var weatherChannel = {
@@ -16,7 +23,11 @@ var weatherChannel = {
     expiresIn: 300,
     messageCount: 1,
     messages: [{createdOn: new Date(Date.now()),createdBy: 'nationality.undone.outsourcing',
-        expiresOn: new Date(Date.now() + 0.5 * 60000), text:'lala'}]
+        expiresOn: new Date(Date.now() + 3.5 * 60000), text:'How is the weather today?'},
+        {createdOn: new Date(Date.now()),createdBy: 'array.tempting.curable',
+        expiresOn: new Date(Date.now() + 4 * 60000), text:'The sun is wonderful.'},
+        {createdOn: new Date(Date.now()),createdBy: 'wednesdays.watchers.coverage',
+        expiresOn: new Date(Date.now() + 4.5 * 60000), text:'Fine'}]
 };
 
 var uniChannel = {
@@ -26,7 +37,12 @@ var uniChannel = {
     starred: false,
     expiresIn: 1,
     messageCount: 400,
-    messages: []
+    messages: [{createdOn: new Date(Date.now()),createdBy: 'nationality.undone.outsourcing',
+        expiresOn: new Date(Date.now() + 3.5 * 60000), text:'How is the uni today?'},
+        {createdOn: new Date(Date.now()),createdBy: 'wednesdays.watchers.coverage',
+        expiresOn: new Date(Date.now() + 4 * 60000), text:'It was a hard day.'},
+        {createdOn: new Date(Date.now()),createdBy: 'wednesdays.watchers.coverage',
+        expiresOn: new Date(Date.now() + 4.5 * 60000), text:'Let\'s take a break.'}]
 };
 
 var oneWorld = {
@@ -36,7 +52,8 @@ var oneWorld = {
     starred: true,
     expiresIn: 500,
     messageCount: 888,
-    messages: []
+    messages: [{createdOn: new Date(Date.now()),createdBy: 'wednesdays.watchers.coverage',
+    expiresOn: new Date(Date.now() + 5 * 60000), text:'One united nations. One united world'}]
 };
 
 var bestQuotes = {
@@ -46,7 +63,12 @@ var bestQuotes = {
     starred: false,
     expiresIn: 50,
     messageCount: 557,
-    messages: []
+    messages: [{createdOn: new Date(Date.now()),createdBy: 'nationality.undone.outsourcing',
+        expiresOn: new Date(Date.now() + 5.5 * 60000), text:'Do your best.'},
+        {createdOn: new Date(Date.now()),createdBy: 'wednesdays.watchers.coverage',
+        expiresOn: new Date(Date.now() + 6 * 60000), text:'Think innovative.'},
+        {createdOn: new Date(Date.now()),createdBy: 'wednesdays.watchers.coverage',
+        expiresOn: new Date(Date.now() + 6.5 * 60000), text:'Tommorrow is better'}]
 };
 
 var placesToVisit = {
@@ -56,5 +78,8 @@ var placesToVisit = {
     starred: true,
     expiresIn: 400,
     messageCount: 999,
-    messages: []
+    messages: [{createdOn: new Date(Date.now()),createdBy: 'nationality.undone.outsourcing',
+        expiresOn: new Date(Date.now() + 3 * 60000), text:'Let\'s go.'},
+        {createdOn: new Date(Date.now()),createdBy: 'array.tempting.curable',
+        expiresOn: new Date(Date.now() + 4 * 60000), text:'Where?'}]
 };
